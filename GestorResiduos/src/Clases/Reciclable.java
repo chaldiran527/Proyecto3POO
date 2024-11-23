@@ -8,6 +8,7 @@ package Clases;
  *
  * @author jessi
  */
+
 public class Reciclable extends Residuo {
     
     protected String beneficios;
@@ -31,10 +32,6 @@ public class Reciclable extends Residuo {
     @Override
     public String toString() {
         return "Reciclable{" + super.toString() + "\n" +
-                "beneficios=" + beneficios + '}';
+               "beneficios=" + beneficios + '}';
     }
-    
-    
-    
-    
 }

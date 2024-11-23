@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jessi/OneDrive/Documentos/POO/Proyecto%203/Proyecto3POO/GestorResiduos/src/Clases/Gestor.java</file>
-            <file>file:/C:/Users/jessi/OneDrive/Documentos/POO/Proyecto%203/Proyecto3POO/GestorResiduos/src/Clases/Residuo.java</file>
-            <file>file:/C:/Users/jessi/OneDrive/Documentos/POO/Proyecto%203/Proyecto3POO/GestorResiduos/src/Clases/Reciclable.java</file>
-            <file>file:/C:/Users/jessi/OneDrive/Documentos/POO/Proyecto%203/Proyecto3POO/GestorResiduos/src/Clases/NoReciclable.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Electronica.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Reciclable.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Aluminio.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Main/GestorResiduos.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Toxica.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Sanitaria.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Escombros.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Organica.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Residuo.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Vidrio.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/CoProcesables.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Plastico.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/NoReciclable.java</file>
+            <file>file:/C:/Users/JOSUE/Documents/GitHub/Proyecto3POO/GestorResiduos/src/Clases/Gestor.java</file>
         </group>
     </open-files>
 </project-private>

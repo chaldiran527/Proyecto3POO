@@ -8,6 +8,7 @@ package Clases;
  *
  * @author jessi
  */
+
 public class NoReciclable extends Residuo {
     
     protected boolean peligroso;
@@ -33,6 +34,5 @@ public class NoReciclable extends Residuo {
         return "NoReciclable{" + super.toString() + "\n" +
                "peligroso=" + peligroso + '}';
     }
-    
-    
 }
+

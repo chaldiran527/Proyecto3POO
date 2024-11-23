@@ -8,6 +8,7 @@ package Clases;
  *
  * @author jessi
  */
+
 public abstract class Residuo {
     
     protected int codigo;
@@ -21,10 +22,16 @@ public abstract class Residuo {
     }
 
     public Residuo(int codigo) {
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("El código debe ser positivo.");
+        }
         this.codigo = codigo;
     }
 
     public Residuo(int codigo, String nombre, String descripcion, String tiempoDescomposicion, String recomendaciones, String impactoAmbiental) {
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("El código debe ser positivo.");
+        }
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -33,11 +40,14 @@ public abstract class Residuo {
         this.impactoAmbiental = impactoAmbiental;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public String getCodigo() {
+        return String.valueOf(codigo);
     }
 
     public void setCodigo(int codigo) {
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("El código debe ser positivo.");
+        }
         this.codigo = codigo;
     }
 
@@ -46,6 +56,9 @@ public abstract class Residuo {
     }
 
     public void setNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+        }
         this.nombre = nombre;
     }
 
@@ -80,8 +93,6 @@ public abstract class Residuo {
     public void setImpactoAmbiental(String impactoAmbiental) {
         this.impactoAmbiental = impactoAmbiental;
     }
-    
-    
 
     @Override
     public String toString() {
@@ -93,11 +104,5 @@ public abstract class Residuo {
                 ", recomendaciones=" + recomendaciones + "\n" +
                 ", impactoAmbiental=" + impactoAmbiental + '}';
     }
-    
-    
-    
-    
-    
-    
- 
 }
+

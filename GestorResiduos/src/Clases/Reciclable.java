@@ -9,29 +9,17 @@ package Clases;
  * @author jessi
  */
 
-public class Reciclable extends Residuo {
-    
-    protected String beneficios;
+public abstract class Reciclable extends Residuo {
 
     public Reciclable() {
     }
 
-    public Reciclable(String beneficios, int codigo, String nombre, String descripcion, String tiempoDescomposicion, String recomendaciones, String impactoAmbiental) {
-        super(codigo, nombre, descripcion, tiempoDescomposicion, recomendaciones, impactoAmbiental);
-        this.beneficios = beneficios;
-    }
-
-    public String getBeneficios() {
-        return beneficios;
-    }
-
-    public void setBeneficios(String beneficios) {
-        this.beneficios = beneficios;
+    public Reciclable(int codigo, String nombre, String descripcion, boolean biodegradable) {
+        super(codigo, nombre, descripcion, biodegradable);
     }
 
     @Override
     public String toString() {
-        return "Reciclable{" + super.toString() + "\n" +
-               "beneficios=" + beneficios + '}';
+        return "Reciclable{" + super.toString() + '}';
     }
 }

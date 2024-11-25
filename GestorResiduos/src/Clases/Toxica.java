@@ -15,8 +15,8 @@ public class Toxica extends NoReciclable {
     public Toxica() {
     }
 
-    public Toxica(String tipoToxico, boolean peligroso, int codigo, String nombre, String descripcion, String tiempoDescomposicion, String recomendaciones, String impactoAmbiental) {
-        super(peligroso, codigo, nombre, descripcion, tiempoDescomposicion, recomendaciones, impactoAmbiental);
+    public Toxica(String tipoToxico, int codigo, String nombre, String descripcion, boolean biodegradable) {
+        super(codigo, nombre, descripcion, biodegradable);
         this.tipoToxico = tipoToxico;
     }
 

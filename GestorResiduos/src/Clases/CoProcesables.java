@@ -15,10 +15,11 @@ public class CoProcesables extends Reciclable {
     public CoProcesables() {
     }
 
-    public CoProcesables(String procesoReciclaje, String beneficios, int codigo, String nombre, String descripcion, String tiempoDescomposicion, String recomendaciones, String impactoAmbiental) {
-        super(beneficios, codigo, nombre, descripcion, tiempoDescomposicion, recomendaciones, impactoAmbiental);
+    public CoProcesables(String procesoReciclaje, int codigo, String nombre, String descripcion, boolean biodegradable) {
+        super(codigo, nombre, descripcion, biodegradable);
         this.procesoReciclaje = procesoReciclaje;
     }
+
 
     public String getProcesoReciclaje() {
         return procesoReciclaje;

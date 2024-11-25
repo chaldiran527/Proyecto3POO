@@ -4,6 +4,8 @@
  */
 package Main;
 
+import Clases.*;
+
 /**
  *
  * @author Usuario
@@ -14,7 +16,12 @@ public class GestorResiduos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Gestor gestor = new Gestor();
+        
+        gestor.insertarResiduo("AAA", "BBB", "SI", "Reciclable", "Plastico", "CCC");
+        gestor.insertarResiduo("DDD", "EEE", "NO", "NoReciclable", "Toxica", "");
+        gestor.insertarResiduo("Aaa", "EEE", "NO", "NoReciclable", "Toxica", "");
+        gestor.mostrarResiduos();
     }
     
 }

@@ -8,11 +8,11 @@ package Clases;
  *
  * @author jessi
  */
-public class InsercionException extends Exception {
+public class MantenimientoException extends Exception {
     
-    private ErroresInsercion codException;
+    private ErroresMantenimiento codException;
 
-    public InsercionException(ErroresInsercion codException) {
+    public MantenimientoException(ErroresMantenimiento codException) {
         this.codException = codException;
     }
     
@@ -26,7 +26,14 @@ public class InsercionException extends Exception {
             case RESIDUO_EXISTE : 
                 mensaje = "Este residuo ya existe."; 
                 break;
+            case RESIDUO_NO_EXISTE : 
+                mensaje = "Este residuo no existe."; 
+                break;
+            case DATO_ESPECIFICO_VACIO : 
+                mensaje = "Este dato no puede quedar vacío."; 
+                break;
         }
         return mensaje;
     }
+    
 }

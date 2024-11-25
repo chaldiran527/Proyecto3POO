@@ -8,6 +8,6 @@ package Clases;
  *
  * @author jessi
  */
-public enum ErroresInsercion {
-    DATO_VACIO, RESIDUO_EXISTE
+public enum ErroresMantenimiento {
+    DATO_VACIO, RESIDUO_EXISTE, RESIDUO_NO_EXISTE, DATO_ESPECIFICO_VACIO
 }

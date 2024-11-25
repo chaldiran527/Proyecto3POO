@@ -18,10 +18,15 @@ public class GestorResiduos {
     public static void main(String[] args) {
         Gestor gestor = new Gestor();
         
-        gestor.insertarResiduo("AAA", "BBB", "SI", "Reciclable", "Plastico", "CCC");
-        gestor.insertarResiduo("DDD", "EEE", "NO", "NoReciclable", "Toxica", "");
-        gestor.insertarResiduo("Aaa", "EEE", "NO", "NoReciclable", "Toxica", "");
+        gestor.insertarResiduo("AAA", "BBB", null, "Reciclable", "Plastico", "CCC");
+        gestor.insertarResiduo("DDD", "EEE", "NO", "NoReciclable", "Toxica", "FFF");
+        gestor.insertarResiduo("Aaa", "EEE", "NO", "NoReciclable", "Toxica", "FFF");
         gestor.mostrarResiduos();
+        gestor.modificarResiduo();
+        gestor.modificarResiduo();
+        gestor.mostrarResiduos();
+        
+        
     }
     
 }

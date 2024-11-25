@@ -34,7 +34,7 @@ public class Gestor {
         
         try{
             if (nombre == null || descripcion == null || esBiodegradable == null || tipoResiduo == null || categoria == null || caracteristica == null) {
-                throw new InsercionException(ErroresInsercion.DATO_VACIO);
+                throw new MantenimientoException(ErroresMantenimiento.DATO_VACIO);
             }
 
             nombre = nombre.trim().toLowerCase();
@@ -44,7 +44,7 @@ public class Gestor {
             nombreBuscar = nombreBuscar.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
 
             if (buscarNombreRepetido(nombreBuscar)) {
-                throw new InsercionException(ErroresInsercion.RESIDUO_EXISTE);
+                throw new MantenimientoException(ErroresMantenimiento.RESIDUO_EXISTE);
             }
             
             boolean biodegradable;
@@ -132,8 +132,67 @@ public class Gestor {
             JOptionPane.showMessageDialog(null, "Residuo insertado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
         
-        catch (InsercionException e){
+        catch (MantenimientoException e){
             JOptionPane.showMessageDialog(null, "Error al insertar el residuo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+   
+    
+    
+    public void modificarResiduo (){
+        
+        
+        try{
+            
+            String codigo = JOptionPane.showInputDialog(null, "Introduce el código del residuo a modificar:", "Modificación Residuo", JOptionPane.QUESTION_MESSAGE);
+            
+            if (codigo == null) {
+                throw new MantenimientoException(ErroresMantenimiento.DATO_VACIO);
+            }
+            
+            Residuo residuo = buscarResiduoPorCod(codigo);
+            
+            if (residuo == null)
+                throw new MantenimientoException(ErroresMantenimiento.RESIDUO_NO_EXISTE);
+            
+            String [] opciones = {"Descripción", "Estado de biodegradable"};
+            int modificar = JOptionPane.showOptionDialog(null, "Seleccione que desea modificar", "Modificar Datos", JOptionPane.DEFAULT_OPTION, 
+                              JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
+
+            switch(modificar){
+                case 0:
+                    String descripcion = JOptionPane.showInputDialog(null, "Ingrese la nueva descripción del residuo", "Modificar Residuo", JOptionPane.QUESTION_MESSAGE);
+                    
+                    if (descripcion == null) 
+                        return;
+                    
+                    else if (descripcion.trim().isEmpty())
+                        throw new MantenimientoException(ErroresMantenimiento.DATO_ESPECIFICO_VACIO); 
+                    
+                    residuo.descripcion = descripcion;
+                    
+                    break;
+                    
+                case 1:
+                    int esBiodegradable = JOptionPane.showConfirmDialog(null, "¿Desea colocar el residuo como biodegradable?", "Modificar Residuo", JOptionPane.YES_NO_OPTION);
+                    
+                    if (esBiodegradable == JOptionPane.YES_OPTION)
+                        residuo.biodegradable = true;
+                    
+                    else if (esBiodegradable == JOptionPane.NO_OPTION)
+                        residuo.biodegradable = false;
+                    
+                    else if (esBiodegradable == JOptionPane.CLOSED_OPTION)
+                        return;
+                    
+                    break;
+            }
+            
+            JOptionPane.showMessageDialog(null, "Residuo modificado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        catch (MantenimientoException e){
+            JOptionPane.showMessageDialog(null, "Error al modificar el residuo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -148,6 +207,8 @@ public class Gestor {
         return residuos;
     }
     
+    
+    
     public Residuo buscarResiduoPorCod(String codigo) {
         for (Residuo residuo : residuos) {
             if (residuo.getCodigo().equals(codigo)) {
@@ -156,6 +217,8 @@ public class Gestor {
         }
         return null;
     }
+    
+    
     
     
     public boolean buscarNombreRepetido(String nombreResiduo) {
@@ -170,6 +233,9 @@ public class Gestor {
         return false;
     }
     
+    
+    
+    
     public ArrayList<Reciclable> filtrarReciclables() {
     ArrayList<Reciclable> reciclables = new ArrayList<>();
     for (Residuo residuo : residuos) {
@@ -179,6 +245,8 @@ public class Gestor {
     }
     return reciclables;
     }
+    
+    
     
     
     public void mostrarResiduos() {

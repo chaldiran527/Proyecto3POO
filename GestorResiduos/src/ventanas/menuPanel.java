@@ -142,6 +142,11 @@ public class menuPanel extends javax.swing.JPanel {
         editar.setBorderPainted(false);
         editar.setContentAreaFilled(false);
         editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarActionPerformed(evt);
+            }
+        });
         menuPanel.add(editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 300, 70));
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
@@ -354,8 +359,14 @@ public class menuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ResiduosCategoríaActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        // TODO add your handling code here:
+        eliminar p3 = new eliminar();
+        ponerPanel(p3);
     }//GEN-LAST:event_eliminarActionPerformed
+
+    private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
+        editar p2 = new editar();
+        ponerPanel(p2);
+    }//GEN-LAST:event_editarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

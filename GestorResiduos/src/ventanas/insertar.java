@@ -356,10 +356,10 @@ public class insertar extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(254, 250, 224));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Insertar Residuo");
-        insertar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 400, 50));
+        insertar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 400, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/626f47 (1).png"))); // NOI18N
-        insertar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 420, 80));
+        insertar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 420, 70));
 
         jLabel21.setBackground(new java.awt.Color(98, 111, 71));
         jLabel21.setForeground(new java.awt.Color(98, 111, 71));
@@ -455,8 +455,8 @@ public class insertar extends javax.swing.JPanel {
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
-        menuPanel p1 = new menuPanel();
-        ponerPanel(p1);
+        menuPanel p = new menuPanel();
+        ponerPanel(p);
     }//GEN-LAST:event_atrasActionPerformed
 
     private void No_ReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No_ReciclableActionPerformed

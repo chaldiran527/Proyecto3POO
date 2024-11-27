@@ -5,6 +5,8 @@
 package ventanas;
 
 import Clases.*;
+import javax.swing.JPanel;
+
 /**
  *
  * @author jdavid
@@ -27,19 +29,100 @@ public class eliminar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        eliminar = new javax.swing.JPanel();
+        atras = new javax.swing.JToggleButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setMinimumSize(new java.awt.Dimension(1200, 700));
+
+        eliminar.setMinimumSize(new java.awt.Dimension(1200, 700));
+        eliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        atras.setBorderPainted(false);
+        atras.setContentAreaFilled(false);
+        atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atrasActionPerformed(evt);
+            }
+        });
+        eliminar.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 40));
+
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 40)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(254, 250, 224));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Eliminar Residuo");
+        eliminar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 400, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/626f47 (1).png"))); // NOI18N
+        eliminar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 420, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 440, 50));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
+        eliminar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 40));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        eliminar.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 950, 550));
+
+        jLabel2.setBackground(new java.awt.Color(98, 111, 71));
+        jLabel2.setForeground(new java.awt.Color(98, 111, 71));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/626f47 (1).png"))); // NOI18N
+        eliminar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ponerPanel(JPanel p) {
+    // Establecer tamaño y ubicación para el panel a agregar
+        eliminar.removeAll();
+
+    // Establecer tamaño y ubicación para el panel a agregar
+        p.setSize(eliminar.getWidth(), eliminar.getHeight()); // Ajusta al tamaño del panelDerecha
+        p.setLocation(0, 0); // Establecer la ubicación en el panelDerecha
+
+        // Agregar el panel al contenedor sin especificar layout
+        eliminar.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1)); // Usando AbsoluteConstraints
+
+        // Revalidar y repaint
+        eliminar.revalidate();
+        eliminar.repaint();
+    }
+    
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+        menuPanel p = new menuPanel();
+        ponerPanel(p);
+    }//GEN-LAST:event_atrasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton atras;
+    private javax.swing.JPanel eliminar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

@@ -94,11 +94,21 @@ public class menu extends javax.swing.JFrame {
         eliminar.setBorderPainted(false);
         eliminar.setContentAreaFilled(false);
         eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
         menuPanel.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, 300, 70));
 
         editar.setBorderPainted(false);
         editar.setContentAreaFilled(false);
         editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarActionPerformed(evt);
+            }
+        });
         menuPanel.add(editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 300, 70));
 
         insertar.setBorderPainted(false);
@@ -293,7 +303,7 @@ public class menu extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(98, 111, 71));
         jLabel2.setForeground(new java.awt.Color(98, 111, 71));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/626f47 (1).png"))); // NOI18N
-        menuPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 700));
+        menuPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
         jLabel25.setForeground(new java.awt.Color(98, 111, 71));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -361,6 +371,16 @@ public class menu extends javax.swing.JFrame {
         insertar p1 = new insertar();
         ponerPanel(p1);
     }//GEN-LAST:event_insertarActionPerformed
+
+    private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
+        editar p2 = new editar();
+        ponerPanel(p2);
+    }//GEN-LAST:event_editarActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        eliminar p3 = new eliminar();
+        ponerPanel(p3);
+    }//GEN-LAST:event_eliminarActionPerformed
 
     /**
      * @param args the command line arguments

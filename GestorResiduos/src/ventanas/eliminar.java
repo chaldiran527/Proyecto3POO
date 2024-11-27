@@ -4,6 +4,7 @@
  */
 package ventanas;
 
+import Clases.*;
 /**
  *
  * @author jdavid

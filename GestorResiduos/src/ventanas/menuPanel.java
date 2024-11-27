@@ -332,6 +332,7 @@ public class menuPanel extends javax.swing.JPanel {
     }
     
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
+
         insertar p1 = new insertar();
         ponerPanel(p1);
     }//GEN-LAST:event_insertarActionPerformed

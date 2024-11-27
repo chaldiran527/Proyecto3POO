@@ -6,6 +6,7 @@ package ventanas;
 
 import javax.swing.*;
 
+
 /**
  *
  * @author jdavid
@@ -17,7 +18,6 @@ public class menu extends javax.swing.JFrame {
      */
     public menu() {
         initComponents();
-        
     }
 
     /**
@@ -353,10 +353,11 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_MostrarInfoActionPerformed
 
     private void VerListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_VerListaActionPerformed
 
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
+
         insertar p1 = new insertar();
         ponerPanel(p1);
     }//GEN-LAST:event_insertarActionPerformed

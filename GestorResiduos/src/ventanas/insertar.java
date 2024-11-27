@@ -7,12 +7,16 @@ package ventanas;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicButtonUI;
 
+
 /**
  *
  * @author jdavid
  */
 public class insertar extends javax.swing.JPanel {
 
+
+
+ 
     /**
      * Creates new form insertar
      */
@@ -171,6 +175,11 @@ public class insertar extends javax.swing.JPanel {
         No_Biod.setBorderPainted(false);
         No_Biod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         No_Biod.setFocusPainted(false);
+        No_Biod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No_BiodActionPerformed(evt);
+            }
+        });
         insertar.add(No_Biod, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, 70, 20));
 
         organico.setBackground(new java.awt.Color(215, 206, 158));
@@ -194,6 +203,11 @@ public class insertar extends javax.swing.JPanel {
         No_Reciclable.setBorderPainted(false);
         No_Reciclable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         No_Reciclable.setFocusPainted(false);
+        No_Reciclable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No_ReciclableActionPerformed(evt);
+            }
+        });
         insertar.add(No_Reciclable, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 70, 20));
 
         Si_Reciclable.setBackground(new java.awt.Color(215, 206, 158));
@@ -415,34 +429,43 @@ public class insertar extends javax.swing.JPanel {
     }
     
     private void organicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organicoActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_organicoActionPerformed
 
     private void Si_ReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Si_ReciclableActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_Si_ReciclableActionPerformed
 
     private void inorganicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inorganicoActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_inorganicoActionPerformed
 
     private void peligrosoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peligrosoActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_peligrosoActionPerformed
 
     private void Si_BiodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Si_BiodActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_Si_BiodActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        menuPanel p1 = new menuPanel();
+        menuPanel p1 = new menuPanel();ponerPanel(p1);
         ponerPanel(p1);
+        
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         menuPanel p1 = new menuPanel();
         ponerPanel(p1);
     }//GEN-LAST:event_atrasActionPerformed
+
+    private void No_ReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No_ReciclableActionPerformed
+
+    }//GEN-LAST:event_No_ReciclableActionPerformed
+
+    private void No_BiodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No_BiodActionPerformed
+      
+    }//GEN-LAST:event_No_BiodActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

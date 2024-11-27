@@ -1,0 +1,39 @@
+Lista de residuos:
+
+
+1. Código: 1
+
+ Tipo: No Reciclable
+
+ Categoría: Organico
+
+ Nombre: Ddd
+
+ Descripción: EEE
+
+ Es biodegradable: No
+
+2. Código: 2
+
+ Tipo: No Reciclable
+
+ Categoría: Inorganico
+
+ Nombre: Aaa
+
+ Descripción: jjj
+
+ Es biodegradable: No
+
+3. Código: 3
+
+ Tipo: Reciclable
+
+ Categoría: Peligroso
+
+ Nombre: Rrr
+
+ Descripción: fff
+
+ Es biodegradable: Sí
+

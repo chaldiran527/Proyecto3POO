@@ -5,6 +5,7 @@
 package Main;
 
 import Clases.*;
+import java.util.List;
 
 /**
  *
@@ -18,15 +19,21 @@ public class GestorResiduos {
     public static void main(String[] args) {
         Gestor gestor = new Gestor();
         
-        gestor.insertarResiduo("AAA", "BBB", null, "Reciclable", "Plastico", "CCC");
-        gestor.insertarResiduo("DDD", "EEE", "NO", "NoReciclable", "Toxica", "FFF");
-        gestor.insertarResiduo("Aaa", "EEE", "NO", "NoReciclable", "Toxica", "FFF");
-        gestor.mostrarResiduos();
+        gestor.insertarResiduo("DDD", "EEE", "NO", "NoReciclable", "Organico");
+        gestor.insertarResiduo("Aaa", "EEE", "NO", "NoReciclable", "Inorganico");
+        //gestor.mostrarResiduos();
         gestor.modificarResiduo();
         gestor.modificarResiduo();
-        gestor.mostrarResiduos();
-        
-        
+        //gestor.mostrarResiduos();
+        gestor.insertarResiduo("rrr", "fff", "SI", "Reciclable", "Peligroso");
+        gestor.eliminarResiduo();
+        //gestor.mostrarResiduos();
+        gestor.eliminarResiduo();
+        //gestor.mostrarResiduos();
+        List listaResiduos = gestor.cargarArchivoResiduos("residuos.dat");
+        if (listaResiduos != null)
+            System.out.println("\n\nLista");
+            System.out.println(listaResiduos);
     }
     
 }

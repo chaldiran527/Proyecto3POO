@@ -4,17 +4,20 @@
  */
 package Clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jessi
  */
 
-public abstract class Residuo {
+public abstract class Residuo implements Serializable {
     
     protected int codigo;
     protected String nombre;
     protected String descripcion;
     protected boolean biodegradable;
+    protected String categoria;
 
     public Residuo() {
     }
@@ -26,7 +29,7 @@ public abstract class Residuo {
         this.codigo = codigo;
     }
 
-    public Residuo(int codigo, String nombre, String descripcion, boolean biodegradable) {
+    public Residuo(int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
         if (codigo <= 0) {
             throw new IllegalArgumentException("El código debe ser positivo.");
         }
@@ -34,6 +37,7 @@ public abstract class Residuo {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.biodegradable = biodegradable;
+        this.categoria = categoria;
     }
 
     public String getCodigo() {
@@ -74,13 +78,23 @@ public abstract class Residuo {
         this.biodegradable = biodegradable;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
+   
     @Override
     public String toString() {
         return "Residuo{" + 
                 "codigo=" + codigo + "\n" +
                 ", nombre=" + nombre + "\n" +
                 ", descripcion=" + descripcion + "\n" +
-                ", biodegradable=" + biodegradable + '}';
+                ", biodegradable=" + biodegradable + "\n" +
+                ", categoria=" + categoria + '}';
     }
 }
 

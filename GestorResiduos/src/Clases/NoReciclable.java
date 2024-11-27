@@ -9,13 +9,13 @@ package Clases;
  * @author jessi
  */
 
-public abstract class NoReciclable extends Residuo {
+public class NoReciclable extends Residuo {
 
     public NoReciclable() {
     }
 
-    public NoReciclable(int codigo, String nombre, String descripcion, boolean biodegradable) {
-        super(codigo, nombre, descripcion, biodegradable);
+    public NoReciclable(int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
+        super(codigo, nombre, descripcion, biodegradable, categoria);
     }
 
     @Override

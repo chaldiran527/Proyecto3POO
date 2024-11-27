@@ -15,8 +15,8 @@ public class Escombros extends NoReciclable {
     public Escombros() {
     }
 
-    public Escombros(boolean reutilizable, int codigo, String nombre, String descripcion, boolean biodegradable) {
-        super(codigo, nombre, descripcion, biodegradable);
+    public Escombros(boolean reutilizable, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
+        super(codigo, nombre, descripcion, biodegradable, categoria);
         this.reutilizable = reutilizable;
     }
 

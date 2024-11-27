@@ -207,7 +207,7 @@ public class editar extends javax.swing.JPanel {
         jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
         jTextArea3.setText("  Si no desea editar algo del \nresiduo no presione el boton \n     correspondiente a esa \ncaracteristca ni escriba nada, \n el unico campo necesario a \n        llenar es el nombre.");
-        jTextArea3.setToolTipText("Ingrese descripción aquí...");
+        jTextArea3.setToolTipText("");
         jTextArea3.setBorder(null);
         jScrollPane3.setViewportView(jTextArea3);
 

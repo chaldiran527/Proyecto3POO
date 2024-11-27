@@ -1,23 +1,22 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ventanas;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 /**
  *
  * @author jdavid
  */
-public class menu extends javax.swing.JFrame {
+public class menuPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form menu
+     * Creates new form menuPanel
      */
-    public menu() {
+    public menuPanel() {
         initComponents();
-        
     }
 
     /**
@@ -30,20 +29,20 @@ public class menu extends javax.swing.JFrame {
     private void initComponents() {
 
         menuPanel = new javax.swing.JPanel();
-        eliminar = new javax.swing.JButton();
-        editar = new javax.swing.JButton();
         insertar = new javax.swing.JButton();
         VerLista = new javax.swing.JButton();
         MostrarInfo = new javax.swing.JButton();
         InformaciónTipo = new javax.swing.JButton();
         ResiduosCategoría = new javax.swing.JButton();
+        eliminar = new javax.swing.JButton();
+        editar = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        imagen4 = new javax.swing.JLabel();
-        imagen3 = new javax.swing.JLabel();
         imagen2 = new javax.swing.JLabel();
+        imagen3 = new javax.swing.JLabel();
+        imagen4 = new javax.swing.JLabel();
         imagen1 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -75,31 +74,10 @@ public class menu extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Centro de Informacion y Manejo de Residuos");
-        setAlwaysOnTop(true);
-        setBounds(new java.awt.Rectangle(0, 0, 10, 10));
-        setLocation(new java.awt.Point(0, 0));
-        setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(1200, 700));
         setMinimumSize(new java.awt.Dimension(1200, 700));
-        setResizable(false);
-        setSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
 
-        menuPanel.setMaximumSize(new java.awt.Dimension(1200, 700));
-        menuPanel.setMinimumSize(new java.awt.Dimension(1200, 700));
-        menuPanel.setPreferredSize(new java.awt.Dimension(1200, 700));
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        eliminar.setBorderPainted(false);
-        eliminar.setContentAreaFilled(false);
-        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuPanel.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, 300, 70));
-
-        editar.setBorderPainted(false);
-        editar.setContentAreaFilled(false);
-        editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuPanel.add(editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 300, 70));
 
         insertar.setBorderPainted(false);
         insertar.setContentAreaFilled(false);
@@ -151,6 +129,21 @@ public class menu extends javax.swing.JFrame {
         });
         menuPanel.add(ResiduosCategoría, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 210, 50));
 
+        eliminar.setBorderPainted(false);
+        eliminar.setContentAreaFilled(false);
+        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
+        menuPanel.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, 300, 70));
+
+        editar.setBorderPainted(false);
+        editar.setContentAreaFilled(false);
+        editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuPanel.add(editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 300, 70));
+
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
         jLabel31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1200, 10));
@@ -167,14 +160,14 @@ public class menu extends javax.swing.JFrame {
         jLabel28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 10, 360));
 
-        imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/to-do-list.png"))); // NOI18N
-        menuPanel.add(imagen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(985, 410, 130, 128));
+        imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/waste.png"))); // NOI18N
+        menuPanel.add(imagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 410, 128, 128));
 
         imagen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/trash.png"))); // NOI18N
         menuPanel.add(imagen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 410, 128, 128));
 
-        imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/waste.png"))); // NOI18N
-        menuPanel.add(imagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 410, 128, 128));
+        imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/to-do-list.png"))); // NOI18N
+        menuPanel.add(imagen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(985, 410, 130, 128));
 
         imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/category.png"))); // NOI18N
         menuPanel.add(imagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 128, 128));
@@ -310,18 +303,16 @@ public class menu extends javax.swing.JFrame {
         jLabel27.setText("Información por Tipo de Residuo");
         menuPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 580, 190, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ponerPanel(JPanel p) { 
@@ -339,62 +330,32 @@ public class menu extends javax.swing.JFrame {
         menuPanel.revalidate();
         menuPanel.repaint();
     }
-
-    private void ResiduosCategoríaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResiduosCategoríaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ResiduosCategoríaActionPerformed
-
-    private void InformaciónTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformaciónTipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InformaciónTipoActionPerformed
-
-    private void MostrarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MostrarInfoActionPerformed
-
-    private void VerListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VerListaActionPerformed
-
+    
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
         insertar p1 = new insertar();
         ponerPanel(p1);
     }//GEN-LAST:event_insertarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void VerListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VerListaActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new menu().setVisible(true);
-            }
-        });
-    }
+    private void MostrarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MostrarInfoActionPerformed
+
+    private void InformaciónTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformaciónTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InformaciónTipoActionPerformed
+
+    private void ResiduosCategoríaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResiduosCategoríaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ResiduosCategoríaActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton InformaciónTipo;

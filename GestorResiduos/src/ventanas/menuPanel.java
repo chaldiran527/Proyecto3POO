@@ -366,7 +366,8 @@ public class menuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_insertarActionPerformed
 
     private void VerListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaActionPerformed
-
+        reciclaje p5 = new reciclaje();
+        ponerPanel(p5);
     }//GEN-LAST:event_VerListaActionPerformed
 
     private void MostrarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoActionPerformed

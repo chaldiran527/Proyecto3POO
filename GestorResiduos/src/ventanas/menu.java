@@ -385,7 +385,8 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_MostrarInfoActionPerformed
 
     private void VerListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaActionPerformed
-
+        reciclaje p5 = new reciclaje();
+        ponerPanel(p5);
     }//GEN-LAST:event_VerListaActionPerformed
 
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed

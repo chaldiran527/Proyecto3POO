@@ -6,6 +6,7 @@ package ventanas;
 
 import Clases.*;
 import javax.swing.JPanel;
+import javax.swing.plaf.basic.BasicButtonUI;
 
 /**
  *
@@ -18,6 +19,7 @@ public class eliminar extends javax.swing.JPanel {
      */
     public eliminar() {
         initComponents();
+        aceptar.setUI(new BasicButtonUI());
     }
 
     /**

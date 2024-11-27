@@ -29,6 +29,7 @@ public class menuPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         menuPanel = new javax.swing.JPanel();
+        listaResiduos = new javax.swing.JButton();
         insertar = new javax.swing.JButton();
         VerLista = new javax.swing.JButton();
         MostrarInfo = new javax.swing.JButton();
@@ -36,6 +37,8 @@ public class menuPanel extends javax.swing.JPanel {
         ResiduosCategoría = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         editar = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -79,6 +82,16 @@ public class menuPanel extends javax.swing.JPanel {
 
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        listaResiduos.setBorderPainted(false);
+        listaResiduos.setContentAreaFilled(false);
+        listaResiduos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listaResiduos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaResiduosActionPerformed(evt);
+            }
+        });
+        menuPanel.add(listaResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 270, 70));
+
         insertar.setBorderPainted(false);
         insertar.setContentAreaFilled(false);
         insertar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -87,7 +100,7 @@ public class menuPanel extends javax.swing.JPanel {
                 insertarActionPerformed(evt);
             }
         });
-        menuPanel.add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 300, 70));
+        menuPanel.add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 260, 70));
 
         VerLista.setBorderPainted(false);
         VerLista.setContentAreaFilled(false);
@@ -97,7 +110,7 @@ public class menuPanel extends javax.swing.JPanel {
                 VerListaActionPerformed(evt);
             }
         });
-        menuPanel.add(VerLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 570, 210, 50));
+        menuPanel.add(VerLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 570, 220, 50));
 
         MostrarInfo.setBorderPainted(false);
         MostrarInfo.setContentAreaFilled(false);
@@ -137,7 +150,7 @@ public class menuPanel extends javax.swing.JPanel {
                 eliminarActionPerformed(evt);
             }
         });
-        menuPanel.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, 300, 70));
+        menuPanel.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 250, 270, 70));
 
         editar.setBorderPainted(false);
         editar.setContentAreaFilled(false);
@@ -147,7 +160,17 @@ public class menuPanel extends javax.swing.JPanel {
                 editarActionPerformed(evt);
             }
         });
-        menuPanel.add(editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 300, 70));
+        menuPanel.add(editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 270, 70));
+
+        jLabel34.setFont(new java.awt.Font("Yu Gothic UI", 0, 30)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(200, 188, 122));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("Lista Residuos");
+        menuPanel.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 270, 40));
+
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
+        jLabel35.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuPanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 270, 70));
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
         jLabel31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -159,7 +182,7 @@ public class menuPanel extends javax.swing.JPanel {
 
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
         jLabel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 10, 360));
+        menuPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, 10, 480));
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
         jLabel28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -179,7 +202,7 @@ public class menuPanel extends javax.swing.JPanel {
 
         jLabel18.setForeground(new java.awt.Color(98, 111, 71));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Ver Lista de Residuos");
+        jLabel18.setText("Formas de Reciclaje");
         menuPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 580, 190, 30));
 
         jLabel17.setForeground(new java.awt.Color(98, 111, 71));
@@ -201,19 +224,19 @@ public class menuPanel extends javax.swing.JPanel {
         jLabel14.setForeground(new java.awt.Color(200, 188, 122));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Eliminar Residuo");
-        menuPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 260, 280, 40));
+        menuPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 260, 270, 40));
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI", 0, 30)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(200, 188, 122));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Editar Residuo");
-        menuPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 280, 40));
+        menuPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, 270, 40));
 
         jLabel12.setFont(new java.awt.Font("Yu Gothic UI", 0, 30)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(200, 188, 122));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Insertar Residuo");
-        menuPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 280, 40));
+        menuPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 260, 40));
 
         jLabel11.setFont(new java.awt.Font("Yu Gothic UI", 1, 29)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(98, 111, 71));
@@ -243,15 +266,15 @@ public class menuPanel extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, 300, 70));
+        menuPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 250, 270, 70));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 300, 70));
+        menuPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 270, 70));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fefae0 (1).png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 300, 70));
+        menuPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 260, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EDE7C6 (1).png"))); // NOI18N
         jLabel1.setText("1200");
@@ -343,8 +366,7 @@ public class menuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_insertarActionPerformed
 
     private void VerListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaActionPerformed
-        infoLista p4 = new infoLista();
-        ponerPanel(p4);
+
     }//GEN-LAST:event_VerListaActionPerformed
 
     private void MostrarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoActionPerformed
@@ -368,6 +390,11 @@ public class menuPanel extends javax.swing.JPanel {
         editar p2 = new editar();
         ponerPanel(p2);
     }//GEN-LAST:event_editarActionPerformed
+
+    private void listaResiduosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaResiduosActionPerformed
+        infoLista p4 = new infoLista();
+        ponerPanel(p4);
+    }//GEN-LAST:event_listaResiduosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -409,12 +436,15 @@ public class menuPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton listaResiduos;
     private javax.swing.JPanel menuPanel;
     // End of variables declaration//GEN-END:variables
 }

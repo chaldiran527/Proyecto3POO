@@ -97,7 +97,7 @@ public class editar extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(98, 111, 71));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("DATOS");
-        editar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 170, 40));
+        editar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, 40));
 
         jLabel12.setFont(new java.awt.Font("Yu Gothic UI", 0, 10)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(98, 111, 71));

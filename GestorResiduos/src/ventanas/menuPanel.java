@@ -291,7 +291,7 @@ public class menuPanel extends javax.swing.JPanel {
         jLabel2.setBackground(new java.awt.Color(98, 111, 71));
         jLabel2.setForeground(new java.awt.Color(98, 111, 71));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/626f47 (1).png"))); // NOI18N
-        menuPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 700));
+        menuPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
         jLabel25.setForeground(new java.awt.Color(98, 111, 71));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -343,7 +343,8 @@ public class menuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_insertarActionPerformed
 
     private void VerListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaActionPerformed
-        // TODO add your handling code here:
+        infoLista p4 = new infoLista();
+        ponerPanel(p4);
     }//GEN-LAST:event_VerListaActionPerformed
 
     private void MostrarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoActionPerformed

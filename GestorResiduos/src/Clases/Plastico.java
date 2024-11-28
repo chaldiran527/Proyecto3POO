@@ -15,8 +15,8 @@ public class Plastico extends Reciclable {
     public Plastico() {
     }
 
-    public Plastico(String tipoPlastico, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
-        super(codigo, nombre, descripcion, biodegradable,categoria);
+    public Plastico(String tipoPlastico, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria, String icono) {
+        super(codigo, nombre, descripcion, biodegradable,categoria, icono);
         this.tipoPlastico = tipoPlastico;
     }
 

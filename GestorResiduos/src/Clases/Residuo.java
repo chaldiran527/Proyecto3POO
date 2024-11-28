@@ -18,6 +18,7 @@ public abstract class Residuo implements Serializable {
     protected String descripcion;
     protected boolean biodegradable;
     protected String categoria;
+    protected String icono;
 
     public Residuo() {
     }
@@ -29,7 +30,7 @@ public abstract class Residuo implements Serializable {
         this.codigo = codigo;
     }
 
-    public Residuo(int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
+    public Residuo(int codigo, String nombre, String descripcion, boolean biodegradable, String categoria, String icono) {
         if (codigo <= 0) {
             throw new IllegalArgumentException("El código debe ser positivo.");
         }
@@ -38,6 +39,7 @@ public abstract class Residuo implements Serializable {
         this.descripcion = descripcion;
         this.biodegradable = biodegradable;
         this.categoria = categoria;
+        this.icono = icono;
     }
 
     public String getCodigo() {
@@ -84,6 +86,14 @@ public abstract class Residuo implements Serializable {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+    
+    public String getIcono() {
+        return icono;
+    }
+
+    public void setIcono(String icono) {
+        this.icono = icono;
     }
     
    

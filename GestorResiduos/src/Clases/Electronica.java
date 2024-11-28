@@ -15,8 +15,8 @@ public class Electronica extends NoReciclable {
     public Electronica() {
     }
 
-    public Electronica(String tipoDispositivo, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
-        super(codigo, nombre, descripcion, biodegradable, categoria);
+    public Electronica(String tipoDispositivo, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria, String icono) {
+        super(codigo, nombre, descripcion, biodegradable, categoria, icono);
         this.tipoDispositivo = tipoDispositivo;
     }
 

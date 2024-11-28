@@ -15,8 +15,8 @@ public class Sanitaria extends NoReciclable {
     public Sanitaria() {
     }
 
-    public Sanitaria(String tipoDesecho, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
-        super(codigo, nombre, descripcion, biodegradable, categoria);
+    public Sanitaria(String tipoDesecho, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria, String icono) {
+        super(codigo, nombre, descripcion, biodegradable, categoria, icono);
         this.tipoDesecho = tipoDesecho;
     }
 

@@ -14,11 +14,13 @@ import javax.swing.plaf.basic.BasicButtonUI;
  */
 public class eliminar extends javax.swing.JPanel {
 
+    String nombre;
     /**
      * Creates new form eliminar
      */
     public eliminar() {
         initComponents();
+        nombre = "";
         aceptar.setUI(new BasicButtonUI());
     }
 
@@ -156,6 +158,9 @@ public class eliminar extends javax.swing.JPanel {
     }//GEN-LAST:event_atrasActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        Gestor gestor = Gestor.getInstance();
+        nombre = jTextField1.getText();
+        gestor.eliminarResiduo(nombre, this);
         menuPanel p = new menuPanel();
         ponerPanel(p);
     }//GEN-LAST:event_aceptarActionPerformed

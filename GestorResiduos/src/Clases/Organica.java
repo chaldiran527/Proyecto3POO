@@ -15,8 +15,8 @@ public class Organica extends NoReciclable {
     public Organica() {
     }
 
-    public Organica(boolean compostable, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
-        super(codigo, nombre, descripcion, biodegradable, categoria);
+    public Organica(boolean compostable, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria, String icono) {
+        super(codigo, nombre, descripcion, biodegradable, categoria, icono);
         this.compostable = compostable;
     }
 

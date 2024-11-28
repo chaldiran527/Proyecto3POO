@@ -6,6 +6,7 @@ package ventanas;
 
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicButtonUI;
+import Clases.*;
 
 
 /**
@@ -13,16 +14,26 @@ import javax.swing.plaf.basic.BasicButtonUI;
  * @author jdavid
  */
 public class insertar extends javax.swing.JPanel {
-
-
-
- 
+  
+    String nombre;
+    String descripcion;
+    String esBiodegradable;
+    String tipoResiduo;
+    String categoria;
+    String icono;
     /**
      * Creates new form insertar
      */
     
     public insertar() {
         initComponents();
+        nombre = "";
+        descripcion = "";
+        esBiodegradable = "";
+        tipoResiduo = "";
+        categoria = "";
+        icono = "";
+        
         aceptar.setUI(new BasicButtonUI()); // Esto quita el efecto 3D
         peligroso.setUI(new BasicButtonUI());
         inorganico.setUI(new BasicButtonUI());
@@ -227,31 +238,61 @@ public class insertar extends javax.swing.JPanel {
         icono6.setBorderPainted(false);
         icono6.setContentAreaFilled(false);
         icono6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono6ActionPerformed(evt);
+            }
+        });
         insertar.add(icono6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 70, 70));
 
         icono5.setBorderPainted(false);
         icono5.setContentAreaFilled(false);
         icono5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono5ActionPerformed(evt);
+            }
+        });
         insertar.add(icono5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 70, 60));
 
         icono4.setBorderPainted(false);
         icono4.setContentAreaFilled(false);
         icono4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono4ActionPerformed(evt);
+            }
+        });
         insertar.add(icono4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 60, 70));
 
         icono3.setBorderPainted(false);
         icono3.setContentAreaFilled(false);
         icono3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono3ActionPerformed(evt);
+            }
+        });
         insertar.add(icono3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 70, 70));
 
         icono2.setBorderPainted(false);
         icono2.setContentAreaFilled(false);
         icono2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono2ActionPerformed(evt);
+            }
+        });
         insertar.add(icono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 70, 70));
 
         icono1.setBorderPainted(false);
         icono1.setContentAreaFilled(false);
         icono1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono1ActionPerformed(evt);
+            }
+        });
         insertar.add(icono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 70, 70));
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/003-recycle.png"))); // NOI18N
@@ -429,26 +470,31 @@ public class insertar extends javax.swing.JPanel {
     }
     
     private void organicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organicoActionPerformed
-      
+      categoria = "Orgánico";
     }//GEN-LAST:event_organicoActionPerformed
 
     private void Si_ReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Si_ReciclableActionPerformed
-        
+        tipoResiduo = "Reciclable";
     }//GEN-LAST:event_Si_ReciclableActionPerformed
 
     private void inorganicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inorganicoActionPerformed
-       
+       categoria = "Inorgánico";
     }//GEN-LAST:event_inorganicoActionPerformed
 
     private void peligrosoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peligrosoActionPerformed
-   
+        categoria = "Peligroso";
     }//GEN-LAST:event_peligrosoActionPerformed
 
     private void Si_BiodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Si_BiodActionPerformed
-        
+        esBiodegradable = "SI";
     }//GEN-LAST:event_Si_BiodActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        Gestor gestor = Gestor.getInstance();
+        nombre = jTextField1.getText();
+        descripcion = jTextArea1.getText();
+        
+        gestor.insertarResiduo(nombre, descripcion, esBiodegradable, tipoResiduo, categoria, icono, this);
         menuPanel p1 = new menuPanel();ponerPanel(p1);
         ponerPanel(p1);
         
@@ -460,12 +506,36 @@ public class insertar extends javax.swing.JPanel {
     }//GEN-LAST:event_atrasActionPerformed
 
     private void No_ReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No_ReciclableActionPerformed
-
+        tipoResiduo = "NoReciclable";
     }//GEN-LAST:event_No_ReciclableActionPerformed
 
     private void No_BiodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No_BiodActionPerformed
-      
+        esBiodegradable = "NO";
     }//GEN-LAST:event_No_BiodActionPerformed
+
+    private void icono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono1ActionPerformed
+        icono = "warning (1).png";
+    }//GEN-LAST:event_icono1ActionPerformed
+
+    private void icono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono2ActionPerformed
+        icono = "003-flask.png";
+    }//GEN-LAST:event_icono2ActionPerformed
+
+    private void icono3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono3ActionPerformed
+        icono = "002-leaf.png";
+    }//GEN-LAST:event_icono3ActionPerformed
+
+    private void icono4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono4ActionPerformed
+         icono = "001-flash.png";
+    }//GEN-LAST:event_icono4ActionPerformed
+
+    private void icono5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono5ActionPerformed
+        icono = "003-recycle.png";
+    }//GEN-LAST:event_icono5ActionPerformed
+
+    private void icono6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono6ActionPerformed
+        icono = "002-trash-bag.png";
+    }//GEN-LAST:event_icono6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

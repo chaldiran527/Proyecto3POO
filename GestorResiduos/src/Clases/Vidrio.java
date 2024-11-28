@@ -15,8 +15,8 @@ public class Vidrio extends Reciclable {
     public Vidrio() {
     }
 
-    public Vidrio(String color, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
-        super(codigo, nombre, descripcion, biodegradable, categoria);
+    public Vidrio(String color, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria, String icono) {
+        super(codigo, nombre, descripcion, biodegradable, categoria, icono);
         this.color = color;
     }
 

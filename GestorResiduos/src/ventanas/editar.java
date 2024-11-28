@@ -13,12 +13,26 @@ import javax.swing.plaf.basic.BasicButtonUI;
  * @author jdavid
  */
 public class editar extends javax.swing.JPanel {
+    
+    String nombre;
+    String descripcion;
+    String esBiodegradable;
+    String tipoResiduo;
+    String categoria;
+    String icono;
 
     /**
      * Creates new form editar
      */
     public editar() {
         initComponents();
+        nombre = "";
+        descripcion = "";
+        esBiodegradable = "";
+        tipoResiduo = "";
+        categoria = "";
+        icono = "";
+        
         aceptar.setUI(new BasicButtonUI()); // Esto quita el efecto 3D
         peligroso.setUI(new BasicButtonUI());
         inorganico.setUI(new BasicButtonUI());
@@ -136,6 +150,11 @@ public class editar extends javax.swing.JPanel {
         No_Reciclable.setBorderPainted(false);
         No_Reciclable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         No_Reciclable.setFocusPainted(false);
+        No_Reciclable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No_ReciclableActionPerformed(evt);
+            }
+        });
         editar.add(No_Reciclable, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 70, 20));
 
         jLabel18.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -165,6 +184,11 @@ public class editar extends javax.swing.JPanel {
         No_Biod.setBorderPainted(false);
         No_Biod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         No_Biod.setFocusPainted(false);
+        No_Biod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No_BiodActionPerformed(evt);
+            }
+        });
         editar.add(No_Biod, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 70, 20));
 
         organico.setBackground(new java.awt.Color(215, 206, 158));
@@ -291,31 +315,61 @@ public class editar extends javax.swing.JPanel {
         icono1.setBorderPainted(false);
         icono1.setContentAreaFilled(false);
         icono1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono1ActionPerformed(evt);
+            }
+        });
         editar.add(icono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 70, 70));
 
         icono3.setBorderPainted(false);
         icono3.setContentAreaFilled(false);
         icono3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono3ActionPerformed(evt);
+            }
+        });
         editar.add(icono3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 70, 70));
 
         icono5.setBorderPainted(false);
         icono5.setContentAreaFilled(false);
         icono5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono5ActionPerformed(evt);
+            }
+        });
         editar.add(icono5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, 70, 60));
 
         icono6.setBorderPainted(false);
         icono6.setContentAreaFilled(false);
         icono6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono6ActionPerformed(evt);
+            }
+        });
         editar.add(icono6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, 70, 70));
 
         icono4.setBorderPainted(false);
         icono4.setContentAreaFilled(false);
         icono4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono4ActionPerformed(evt);
+            }
+        });
         editar.add(icono4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 60, 70));
 
         icono2.setBorderPainted(false);
         icono2.setContentAreaFilled(false);
         icono2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono2ActionPerformed(evt);
+            }
+        });
         editar.add(icono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 70, 70));
 
         atras.setBorderPainted(false);
@@ -422,26 +476,30 @@ public class editar extends javax.swing.JPanel {
     }
     
     private void Si_ReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Si_ReciclableActionPerformed
-        // TODO add your handling code here:
+        tipoResiduo = "Reciclable";
     }//GEN-LAST:event_Si_ReciclableActionPerformed
 
     private void Si_BiodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Si_BiodActionPerformed
-        // TODO add your handling code here:
+         esBiodegradable = "SI";
     }//GEN-LAST:event_Si_BiodActionPerformed
 
     private void organicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organicoActionPerformed
-        // TODO add your handling code here:
+        categoria = "Orgánico";
     }//GEN-LAST:event_organicoActionPerformed
 
     private void inorganicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inorganicoActionPerformed
-        // TODO add your handling code here:
+         categoria = "Inorgánico";
     }//GEN-LAST:event_inorganicoActionPerformed
 
     private void peligrosoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peligrosoActionPerformed
-        // TODO add your handling code here:
+        categoria = "Peligroso";
     }//GEN-LAST:event_peligrosoActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        Gestor gestor = Gestor.getInstance();
+        nombre = jTextField1.getText();
+        descripcion = jTextArea1.getText();
+        gestor.modificarResiduo(nombre, descripcion, esBiodegradable, tipoResiduo, categoria, icono, this);
         menuPanel p = new menuPanel();
         ponerPanel(p);
     }//GEN-LAST:event_aceptarActionPerformed
@@ -450,6 +508,38 @@ public class editar extends javax.swing.JPanel {
         menuPanel p = new menuPanel();
         ponerPanel(p);
     }//GEN-LAST:event_atrasActionPerformed
+
+    private void No_ReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No_ReciclableActionPerformed
+        tipoResiduo = "NoReciclable";
+    }//GEN-LAST:event_No_ReciclableActionPerformed
+
+    private void No_BiodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No_BiodActionPerformed
+        esBiodegradable = "NO";
+    }//GEN-LAST:event_No_BiodActionPerformed
+
+    private void icono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono1ActionPerformed
+        icono = "warning (1).png";
+    }//GEN-LAST:event_icono1ActionPerformed
+
+    private void icono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono2ActionPerformed
+        icono = "003-flask.png";
+    }//GEN-LAST:event_icono2ActionPerformed
+
+    private void icono3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono3ActionPerformed
+         icono = "002-leaf.png";
+    }//GEN-LAST:event_icono3ActionPerformed
+
+    private void icono4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono4ActionPerformed
+        icono = "001-flash.png";
+    }//GEN-LAST:event_icono4ActionPerformed
+
+    private void icono5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono5ActionPerformed
+        icono = "003-recycle.png";
+    }//GEN-LAST:event_icono5ActionPerformed
+
+    private void icono6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono6ActionPerformed
+        icono = "002-trash-bag.png";
+    }//GEN-LAST:event_icono6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

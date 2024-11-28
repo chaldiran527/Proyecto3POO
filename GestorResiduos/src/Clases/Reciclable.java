@@ -14,8 +14,8 @@ public class Reciclable extends Residuo {
     public Reciclable() {
     }
 
-    public Reciclable(int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
-        super(codigo, nombre, descripcion, biodegradable, categoria);
+    public Reciclable(int codigo, String nombre, String descripcion, boolean biodegradable, String categoria, String icono) {
+        super(codigo, nombre, descripcion, biodegradable, categoria, icono);
     }
 
     @Override

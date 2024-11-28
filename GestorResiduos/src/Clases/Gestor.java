@@ -20,6 +20,7 @@ import java.util.Calendar;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import java.text.Normalizer;
+import javax.swing.JPanel;
 
 /**
  *
@@ -48,14 +49,14 @@ public class Gestor implements IRegistrable {
     
    
     public void agregarResiduo(Residuo residuo) {
-        cantidadResiduos++;
         residuos.add(residuo);
         escribirArchivo(residuos);
         agregarArchivo();
     }
   
     
-    public void insertarResiduo(String nombre, String descripcion, String esBiodegradable, String tipoResiduo, String categoria) {
+    public void insertarResiduo(String nombre, String descripcion, String esBiodegradable, String tipoResiduo, String categoria, 
+            String icono, JPanel panel) {
         int codigo = cantidadResiduos;
 
             try {
@@ -74,6 +75,10 @@ public class Gestor implements IRegistrable {
             if (categoria == null || categoria.trim().isEmpty()) {
                 throw new MantenimientoException(ErroresMantenimiento.DATO_VACIO);
             }
+            
+            if (icono == null || icono.trim().isEmpty()) {
+                throw new MantenimientoException(ErroresMantenimiento.DATO_VACIO);
+            }
 
             nombre = nombre.trim().toLowerCase();
             nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
@@ -81,90 +86,101 @@ public class Gestor implements IRegistrable {
             String nombreBuscar = Normalizer.normalize(nombre, Normalizer.Form.NFD);
             nombreBuscar = nombreBuscar.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
 
-            if (buscarNombreRepetido(nombreBuscar)) {
+            if (buscarNombreRepetido(nombreBuscar) != null) {
                 throw new MantenimientoException(ErroresMantenimiento.RESIDUO_EXISTE);
             }
 
             boolean biodegradable = "SI".equals(esBiodegradable);
 
             if ("Reciclable".equals(tipoResiduo)) {
-                Reciclable reciclable = new Reciclable(codigo, nombre, descripcion, biodegradable, categoria);
+                Reciclable reciclable = new Reciclable(codigo, nombre, descripcion, biodegradable, categoria, icono);
                 agregarResiduo(reciclable);
             } 
             
             else if ("NoReciclable".equals(tipoResiduo)) {
-                NoReciclable noReciclable = new NoReciclable(codigo, nombre, descripcion, biodegradable, categoria);
+                NoReciclable noReciclable = new NoReciclable(codigo, nombre, descripcion, biodegradable, categoria, icono);
                 agregarResiduo(noReciclable);
             }
 
-            JOptionPane.showMessageDialog(null, "Residuo insertado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Residuo insertado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            cantidadResiduos++;
         } 
         
         catch (MantenimientoException e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar el residuo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Error al insertar el residuo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
    
     
     
-    public void modificarResiduo (){
+    public void modificarResiduo (String nombre, String descripcion, String esBiodegradable, String tipoResiduo, String categoria, 
+            String icono, JPanel panel){
           
         try{
             
-            String codigo = JOptionPane.showInputDialog(null, "Introduce el código del residuo a modificar:", "Modificación Residuo", JOptionPane.QUESTION_MESSAGE);
-            
-            if (codigo == null) {
-                return;
+            if (nombre == null || nombre.trim().isEmpty()) {
+                throw new MantenimientoException(ErroresMantenimiento.DATO_VACIO);
             }
             
-            else if (codigo.trim().isEmpty())
-                        throw new MantenimientoException(ErroresMantenimiento.DATO_VACIO); 
-            
-            Residuo residuo = buscarResiduoPorCod(codigo);
+            nombre = nombre.trim().toLowerCase();
+            nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
+
+            String nombreBuscar = Normalizer.normalize(nombre, Normalizer.Form.NFD);
+            nombreBuscar = nombreBuscar.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+
+            Residuo residuo = buscarNombreRepetido(nombreBuscar);
             
             if (residuo == null)
                 throw new MantenimientoException(ErroresMantenimiento.RESIDUO_NO_EXISTE);
             
-            String [] opciones = {"Descripción", "Estado de biodegradable"};
-            int modificar = JOptionPane.showOptionDialog(null, "Seleccione que desea modificar", "Modificar Datos", JOptionPane.DEFAULT_OPTION, 
-                              JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
-
-            switch(modificar){
-                case 0:
-                    String descripcion = JOptionPane.showInputDialog(null, "Ingrese la nueva descripción del residuo", "Modificar Residuo", JOptionPane.QUESTION_MESSAGE);
-                    
-                    if (descripcion == null) 
-                        return;
-                    
-                    else if (descripcion.trim().isEmpty())
-                        throw new MantenimientoException(ErroresMantenimiento.DATO_ESPECIFICO_VACIO); 
-                    
-                    residuo.descripcion = descripcion;
-                    
-                    break;
-                    
-                case 1:
-                    int esBiodegradable = JOptionPane.showConfirmDialog(null, "¿Desea colocar el residuo como biodegradable?", "Modificar Residuo", JOptionPane.YES_NO_OPTION);
-                    
-                    if (esBiodegradable == JOptionPane.YES_OPTION)
-                        residuo.biodegradable = true;
-                    
-                    else if (esBiodegradable == JOptionPane.NO_OPTION)
-                        residuo.biodegradable = false;
-                    
-                    else if (esBiodegradable == JOptionPane.CLOSED_OPTION)
-                        return;
-                    
-                    break;
+            if (residuo == null)
+                throw new MantenimientoException(ErroresMantenimiento.RESIDUO_NO_EXISTE);
+            
+            if (!esBiodegradable.trim().isEmpty()){
+                boolean biodegradable = "SI".equals(esBiodegradable);
+                residuo.biodegradable = biodegradable;
             }
             
-            JOptionPane.showMessageDialog(null, "Residuo modificado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            if (!categoria.trim().isEmpty()){
+                residuo.categoria = categoria;
+            }
+            
+            if (!descripcion.trim().isEmpty()){
+                residuo.descripcion = descripcion;
+            }
+            
+            if (!icono.trim().isEmpty()){
+                residuo.icono = icono;
+            }
+            
+            if (!tipoResiduo.trim().isEmpty()){
+                String codigoStr = residuo.getCodigo();
+                int codigo = Integer.parseInt(codigoStr);
+                nombre = residuo.getNombre();
+                descripcion = residuo.getDescripcion();
+                boolean biodegradable = residuo.isBiodegradable();
+                categoria = residuo.getCategoria();
+                
+                if ("Reciclable".equals(tipoResiduo) && residuo instanceof NoReciclable) {
+                    eliminacionResiduo(codigoStr);
+                    Reciclable reciclable = new Reciclable(codigo, nombre, descripcion, biodegradable, categoria, icono);
+                    agregarResiduo(reciclable);
+                } 
+            
+                else if ("NoReciclable".equals(tipoResiduo) && residuo instanceof Reciclable) {
+                    NoReciclable noReciclable = new NoReciclable(codigo, nombre, descripcion, biodegradable, categoria, icono);
+                    agregarResiduo(noReciclable);
+                }
+            }
+            
+            JOptionPane.showMessageDialog(panel, "Residuo modificado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             escribirArchivo(residuos);
             agregarArchivo();
         }
         
         catch (MantenimientoException e){
-            JOptionPane.showMessageDialog(null, "Error al modificar el residuo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Error al modificar el residuo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -172,25 +188,26 @@ public class Gestor implements IRegistrable {
     
     
     
-    public void eliminarResiduo (){
+    public void eliminarResiduo (String nombre, JPanel panel){
         
         try{
             
-            String codigo = JOptionPane.showInputDialog(null, "Introduce el código del residuo a eliminar:", "Eliminación Residuo", JOptionPane.QUESTION_MESSAGE);
-            
-            if (codigo == null) {
-                return;
+            if (nombre == null || nombre.trim().isEmpty()) {
+                throw new MantenimientoException(ErroresMantenimiento.DATO_VACIO);
             }
             
-            else if (codigo.trim().isEmpty())
-                        throw new MantenimientoException(ErroresMantenimiento.DATO_VACIO); 
-            
-            Residuo residuo = buscarResiduoPorCod(codigo);
+            nombre = nombre.trim().toLowerCase();
+            nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
+
+            String nombreBuscar = Normalizer.normalize(nombre, Normalizer.Form.NFD);
+            nombreBuscar = nombreBuscar.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+
+            Residuo residuo = buscarNombreRepetido(nombreBuscar);
             
             if (residuo == null)
                 throw new MantenimientoException(ErroresMantenimiento.RESIDUO_NO_EXISTE);
             
-            int respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea eliminar el residuo?", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
+            int respuesta = JOptionPane.showConfirmDialog(panel, "¿Está seguro de que desea eliminar el residuo?", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
                     
             if (respuesta == JOptionPane.YES_OPTION)
                 eliminacionResiduo(residuo.getCodigo());
@@ -201,11 +218,11 @@ public class Gestor implements IRegistrable {
             else if (respuesta == JOptionPane.CLOSED_OPTION)
                 return;
             
-            JOptionPane.showMessageDialog(null, "Residuo eliminado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Residuo eliminado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
         
         catch (MantenimientoException e){
-            JOptionPane.showMessageDialog(null, "Error al eliminar el residuo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Error al eliminar el residuo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -234,16 +251,16 @@ public class Gestor implements IRegistrable {
     
     
     
-    public boolean buscarNombreRepetido(String nombreResiduo) {
+    public Residuo buscarNombreRepetido(String nombreResiduo) {
         for (Residuo residuo : residuos) {
             String nombreLista = Normalizer.normalize(residuo.getNombre(), Normalizer.Form.NFD);
             nombreLista = nombreLista.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
             
             if (nombreLista.equals(nombreResiduo)) {
-                return true;
+                return residuo;
             }
         }
-        return false;
+        return null;
     }
     
     

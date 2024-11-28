@@ -15,8 +15,8 @@ public class Aluminio extends Reciclable {
     public Aluminio() {
     }
 
-    public Aluminio(boolean esLata, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria) {
-        super(codigo, nombre, descripcion, biodegradable, categoria);
+    public Aluminio(boolean esLata, int codigo, String nombre, String descripcion, boolean biodegradable, String categoria, String icono) {
+        super(codigo, nombre, descripcion, biodegradable, categoria, icono);
         this.esLata = esLata;
     }
 

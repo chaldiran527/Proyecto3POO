@@ -5,19 +5,61 @@
 package ventanas;
 
 import javax.swing.JPanel;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import Clases.*;
 
 /**
  *
  * @author jdavid
  */
 public class infoTipo extends javax.swing.JPanel {
-
+    
+    ArrayList<Residuo> residuos;
+    Residuo elementoActual;
+    String tipoResiduo;
+    String esBiodegradable;
+    int indiceActual = 0;
     /**
      * Creates new form infoTipo
+     * @param residuos
      */
-    public infoTipo() {
+    public infoTipo(ArrayList<Residuo> residuos) {
         initComponents();
+        this.residuos = residuos;
+        actualizarInformacion();
     }
+    
+     private void actualizarInformacion() {
+        if (residuos.isEmpty()) {
+            return; 
+        }
+
+        elementoActual = residuos.get(indiceActual); 
+        
+        if (elementoActual instanceof Reciclable)
+            tipoResiduo = "Reciclable: Sí";
+        else
+            tipoResiduo = "Reciclable: No";
+        
+        if (elementoActual.isBiodegradable())
+            esBiodegradable = "Es biodegradable: Sí";
+        else
+            esBiodegradable = "Es biodegradable: No";
+        
+        nombre.setText(elementoActual.getNombre());
+        reciclable.setText(tipoResiduo);
+        biodegradable.setText(esBiodegradable);
+        tipo.setText(elementoActual.getCategoria());
+        descripcion.setText(elementoActual.getDescripcion());
+        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/" + elementoActual.getIcono())));
+
+        
+        anterior2.setEnabled(indiceActual > 0);
+        siguiente.setEnabled(indiceActual < residuos.size() - 1); 
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,6 +157,7 @@ public class infoTipo extends javax.swing.JPanel {
         infoTipo.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 340, 50, 50));
 
         imagen.setBackground(new java.awt.Color(208, 221, 230));
+        imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imagen.setOpaque(true);
         infoTipo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 230, 220));
 
@@ -127,13 +170,13 @@ public class infoTipo extends javax.swing.JPanel {
 
         reciclable.setBackground(new java.awt.Color(208, 221, 230));
         reciclable.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
-        reciclable.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        reciclable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         reciclable.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         reciclable.setOpaque(true);
         infoTipo.add(reciclable, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 280, 30));
 
         biodegradable.setBackground(new java.awt.Color(208, 221, 230));
-        biodegradable.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        biodegradable.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         biodegradable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         biodegradable.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         biodegradable.setOpaque(true);
@@ -147,7 +190,7 @@ public class infoTipo extends javax.swing.JPanel {
         infoTipo.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 280, 30));
 
         label3.setBackground(new java.awt.Color(208, 221, 230));
-        label3.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        label3.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         label3.setOpaque(true);
@@ -212,13 +255,17 @@ public class infoTipo extends javax.swing.JPanel {
     }//GEN-LAST:event_atrasActionPerformed
 
     private void anterior2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anterior2ActionPerformed
-        reciclaje3 p2 = new reciclaje3();
-        ponerPanel(p2);
+        if (indiceActual > 0) {
+            indiceActual--; 
+            actualizarInformacion(); 
+        }
     }//GEN-LAST:event_anterior2ActionPerformed
 
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
-        reciclaje2 p2 = new reciclaje2();
-        ponerPanel(p2);
+        if (indiceActual < residuos.size() - 1) {
+            indiceActual++; 
+            actualizarInformacion();
+        }
     }//GEN-LAST:event_siguienteActionPerformed
 private void ponerPanel(JPanel p) {
         infoTipo.removeAll();
@@ -236,8 +283,6 @@ private void ponerPanel(JPanel p) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton anterior;
-    private javax.swing.JButton anterior1;
     private javax.swing.JButton anterior2;
     private javax.swing.JToggleButton atras;
     private javax.swing.JLabel biodegradable;

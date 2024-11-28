@@ -4,6 +4,7 @@
  */
 package Clases;
 
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -20,7 +21,7 @@ import java.util.Calendar;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import java.text.Normalizer;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  *
@@ -161,6 +162,7 @@ public class Gestor implements IRegistrable {
                 descripcion = residuo.getDescripcion();
                 boolean biodegradable = residuo.isBiodegradable();
                 categoria = residuo.getCategoria();
+                icono = residuo.getIcono();
                 
                 if ("Reciclable".equals(tipoResiduo) && residuo instanceof NoReciclable) {
                     eliminacionResiduo(codigoStr);
@@ -169,6 +171,7 @@ public class Gestor implements IRegistrable {
                 } 
             
                 else if ("NoReciclable".equals(tipoResiduo) && residuo instanceof Reciclable) {
+                    eliminacionResiduo(codigoStr);
                     NoReciclable noReciclable = new NoReciclable(codigo, nombre, descripcion, biodegradable, categoria, icono);
                     agregarResiduo(noReciclable);
                 }
@@ -397,6 +400,7 @@ public class Gestor implements IRegistrable {
                 registrar(" Nombre: " + residuo.getNombre() + "\n", true);
                 registrar(" Descripción: " + residuo.getDescripcion() + "\n", true);
                 registrar(" Es biodegradable: " + esBiodegradable + "\n", true);
+                registrar(" Icono: " + residuo.getIcono() + "\n", true);
      
                 cont++;
             }
@@ -414,6 +418,127 @@ public class Gestor implements IRegistrable {
                 return false;
             }
         } 
+        
+        public void FiltrarPorCategoria(JPanel panel) {
+            String[] opciones = {"Orgánico", "Inorgánico", "Peligroso"};
+            int categoriaBuscar = JOptionPane.showOptionDialog(panel, "Seleccione la categoría", "Filtrar por Categoría", JOptionPane.DEFAULT_OPTION, 
+                                                              JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
+
+            String categoriaResiduo;
+
+            switch (categoriaBuscar) {
+                case 0:
+                    categoriaResiduo = "Orgánico";
+                    break;
+                case 1:
+                    categoriaResiduo = "Inorgánico";
+                    break;
+                case 2:
+                    categoriaResiduo = "Peligroso";
+                    break;
+                default:
+                    return;
+            }
+
+            JDialog consultaDialog = new JDialog((Frame) null, "Residuos - " + categoriaResiduo, false); // No modal
+            consultaDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            consultaDialog.setSize(400, 300);
+
+            JTextArea textArea = new JTextArea();
+            textArea.setEditable(false);
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("Categoría: ").append(categoriaResiduo).append("\n\n");
+            boolean lista = false;
+            int cont = 1;
+
+            for (Residuo residuo : residuos) {
+                String tipo = buscarTipo(residuo.getCodigo());
+                if (residuo.getCategoria().equals(categoriaResiduo)) {
+                    lista = true;
+                    sb.append(cont).append(". Nombre del residuo: ").append(residuo.getNombre()).append("\n")
+                      .append("    Tipo de residuo: ").append(tipo).append("\n\n");
+                    cont++;
+                }
+            }
+
+            if (lista) {
+                textArea.setText(sb.toString());
+
+                textArea.setBackground(new Color(115, 122, 50)); 
+                textArea.setForeground(Color.WHITE); 
+                textArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
+                textArea.setLineWrap(true); 
+                textArea.setWrapStyleWord(true); 
+
+                textArea.setBorder(BorderFactory.createLineBorder(new Color(100, 100, 100), 1, true));
+
+                JScrollPane scrollPane = new JScrollPane(textArea);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setBorder(BorderFactory.createEmptyBorder()); // Eliminar borde del JScrollPane
+
+                consultaDialog.add(scrollPane, BorderLayout.CENTER);
+
+                Color customColor = new Color(53, 68, 44);
+                consultaDialog.getContentPane().setBackground(customColor);
+                consultaDialog.setLocationRelativeTo(null);
+                consultaDialog.setAlwaysOnTop(true);
+                consultaDialog.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(panel, "No se encontraron residuos registrados en esta categoría.", "Filtrar por Categoría", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        
+        
+        
+        
+        public ArrayList<Residuo> FiltrarPorTipo(JPanel panel) {
+            String[] opciones = {"Reciclable", "No Reciclable"};
+            int tipoBuscar = JOptionPane.showOptionDialog(panel, "Seleccione el tipo de residuo", "Filtrar por Tipo de residuo", JOptionPane.DEFAULT_OPTION, 
+                                    JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
+
+            String tipoResiduo;
+
+            switch (tipoBuscar) {
+                case 0:
+                    tipoResiduo = "Reciclable";
+                    break;
+                case 1:
+                    tipoResiduo = "No Reciclable";
+                    break;
+                default:
+                    return null;
+            }
+
+            boolean lista = false;
+            ArrayList<Residuo> residuosTipo = new ArrayList<>();
+
+            for (Residuo residuo : residuos) {
+                String tipo = buscarTipo(residuo.getCodigo());
+                if (tipo.equals(tipoResiduo)) {
+                    residuosTipo.add(residuo);
+                    lista = true;
+                }
+            }
+
+            if (!lista){ 
+                JOptionPane.showMessageDialog(panel, "No se encontraron residuos registrados en este tipo.", "Filtrar por Tipo", JOptionPane.INFORMATION_MESSAGE);
+                return null;
+            } 
+            
+            return residuosTipo; 
+            
+        }
+        
+
+        
+        public ArrayList<Residuo> MostrarInformacionResiduo(JPanel panel) {
+            if (residuos == null){ 
+                JOptionPane.showMessageDialog(panel, "No se encontraron residuos registrados.", "Mostrar Información", JOptionPane.INFORMATION_MESSAGE);
+                return null;
+            } 
+            return residuos; 
+        }
 }
     
         

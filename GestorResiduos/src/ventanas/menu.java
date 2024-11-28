@@ -18,6 +18,9 @@ public class menu extends javax.swing.JFrame {
      */
     public menu() {
         initComponents();
+        menuPanel p0 = new menuPanel();
+        ponerPanel(p0);
+        this.setVisible(false);
     }
 
     /**

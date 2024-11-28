@@ -5,6 +5,8 @@
 package ventanas;
 
 import javax.swing.JPanel;
+import Clases.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -371,15 +373,26 @@ public class menuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_VerListaActionPerformed
 
     private void MostrarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoActionPerformed
-        // TODO add your handling code here:
+        Gestor gestor = Gestor.getInstance();
+        ArrayList<Residuo> residuos = gestor.MostrarInformacionResiduo(this);
+        if (residuos != null){
+            mostrarInfo p7 = new mostrarInfo(residuos);
+            ponerPanel(p7);
+        }
     }//GEN-LAST:event_MostrarInfoActionPerformed
 
     private void InformaciónTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformaciónTipoActionPerformed
-        // TODO add your handling code here:
+        Gestor gestor = Gestor.getInstance();
+        ArrayList<Residuo> residuosTipo = gestor.FiltrarPorTipo(this);
+        if (residuosTipo != null){
+            infoTipo p6 = new infoTipo(residuosTipo);
+            ponerPanel(p6);
+        }
     }//GEN-LAST:event_InformaciónTipoActionPerformed
 
     private void ResiduosCategoríaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResiduosCategoríaActionPerformed
-        // TODO add your handling code here:
+        Gestor gestor = Gestor.getInstance();
+        gestor.FiltrarPorCategoria(this);
     }//GEN-LAST:event_ResiduosCategoríaActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed

@@ -5,6 +5,9 @@
 package ventanas;
 
 import javax.swing.JPanel;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import Clases.*;
 
 /**
  *
@@ -12,11 +15,49 @@ import javax.swing.JPanel;
  */
 public class mostrarInfo extends javax.swing.JPanel {
 
+    ArrayList<Residuo> residuos;
+    Residuo elementoActual;
+    String tipoResiduo;
+    String esBiodegradable;
+    int indiceActual = 0;
     /**
      * Creates new form mostrarInfo
      */
-    public mostrarInfo() {
+    public mostrarInfo(ArrayList<Residuo> residuos) {
         initComponents();
+        initComponents();
+        this.residuos = residuos;
+        actualizarInformacion();
+    }
+    
+    
+    private void actualizarInformacion() {
+        if (residuos.isEmpty()) {
+            return; 
+        }
+
+        elementoActual = residuos.get(indiceActual); 
+        
+        if (elementoActual instanceof Reciclable)
+            tipoResiduo = "Reciclable: Sí";
+        else
+            tipoResiduo = "Reciclable: No";
+        
+        if (elementoActual.isBiodegradable())
+            esBiodegradable = "Es biodegradable: Sí";
+        else
+            esBiodegradable = "Es biodegradable: No";
+        
+        nombre.setText(elementoActual.getNombre());
+        reciclable.setText(tipoResiduo);
+        biodegradable.setText(esBiodegradable);
+        tipo.setText(elementoActual.getCategoria());
+        descripcion.setText(elementoActual.getDescripcion());
+        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/" + elementoActual.getIcono())));
+
+        
+        anterior2.setEnabled(indiceActual > 0);
+        siguiente.setEnabled(indiceActual < residuos.size() - 1); 
     }
 
     /**
@@ -92,6 +133,7 @@ public class mostrarInfo extends javax.swing.JPanel {
         mostrarInfo.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 400, 40));
 
         imagen.setBackground(new java.awt.Color(208, 221, 230));
+        imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imagen.setOpaque(true);
         mostrarInfo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 230, 220));
 
@@ -115,14 +157,14 @@ public class mostrarInfo extends javax.swing.JPanel {
         mostrarInfo.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 580, 150));
 
         tipo.setBackground(new java.awt.Color(208, 221, 230));
-        tipo.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        tipo.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         tipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tipo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         tipo.setOpaque(true);
         mostrarInfo.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 280, 30));
 
         biodegradable.setBackground(new java.awt.Color(208, 221, 230));
-        biodegradable.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        biodegradable.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         biodegradable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         biodegradable.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         biodegradable.setOpaque(true);
@@ -130,7 +172,7 @@ public class mostrarInfo extends javax.swing.JPanel {
 
         reciclable.setBackground(new java.awt.Color(208, 221, 230));
         reciclable.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
-        reciclable.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        reciclable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         reciclable.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         reciclable.setOpaque(true);
         mostrarInfo.add(reciclable, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 280, 30));
@@ -218,13 +260,17 @@ public class mostrarInfo extends javax.swing.JPanel {
     }//GEN-LAST:event_atrasActionPerformed
 
     private void anterior2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anterior2ActionPerformed
-        reciclaje3 p2 = new reciclaje3();
-        ponerPanel(p2);
+        if (indiceActual > 0) {
+            indiceActual--; 
+            actualizarInformacion(); 
+        }
     }//GEN-LAST:event_anterior2ActionPerformed
 
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
-        reciclaje2 p2 = new reciclaje2();
-        ponerPanel(p2);
+        if (indiceActual < residuos.size() - 1) {
+            indiceActual++; 
+            actualizarInformacion();
+        }
     }//GEN-LAST:event_siguienteActionPerformed
 
 

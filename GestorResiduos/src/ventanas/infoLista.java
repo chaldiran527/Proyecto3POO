@@ -201,11 +201,13 @@ public class infoLista extends javax.swing.JPanel {
         jTextArea3.setForeground(new java.awt.Color(221, 230, 237));
         jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
+        jTextArea3.setText("Los residuos orgánicos incluyen restos de alimentos, poda de jardines y materiales biodegradables. Aunque no son reciclables en el sentido tradicional, pueden ser compostados para generar abono natural. \nSi no se tratan adecuadamente, liberan metano, un gas de efecto invernadero, al descomponerse en vertederos.");
         jTextArea3.setToolTipText("");
+        jTextArea3.setWrapStyleWord(true);
         jTextArea3.setBorder(null);
         jScrollPane3.setViewportView(jTextArea3);
 
-        infoLista.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 310, 210));
+        infoLista.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 320, 210));
 
         jLabel18.setForeground(new java.awt.Color(77, 134, 156));
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/azul2 (1).png"))); // NOI18N
@@ -340,47 +342,56 @@ public class infoLista extends javax.swing.JPanel {
     private void PlásticosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlásticosActionPerformed
         nombre.setText("Plásticos");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/water-bottle.png")));
+        jTextArea3.setText("El plástico es un material sintético hecho a partir de polímeros, derivados generalmente del petróleo. Su ligereza, durabilidad y bajo costo lo hacen ideal para aplicaciones como envases, utensilios desechables, y componentes industriales. Sin embargo, su producción y desecho representan grandes desafíos ambientales, ya que la mayoría de los plásticos no son biodegradables. ");
         
     }//GEN-LAST:event_PlásticosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         nombre.setText("Residuos Orgánicos");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/banana.png")));
+        jTextArea3.setText("Estos residuos provienen de organismos vivos, como plantas, animales o microorganismos, y tienen la capacidad de descomponerse de manera natural a través de procesos biológicos, como la acción de bacterias y hongos. Esto los convierte en una fuente ideal para procesos de compostaje o generación de biogás.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         nombre.setText("Papel y Cartón");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paper.png")));
+        jTextArea3.setText("Desechos sólidos generados a partir de productos fabricados con fibra de celulosa, provenientes principalmente de árboles o materiales reciclados. Estos residuos son comunes en hogares, oficinas, comercios e industrias y tienen un alto potencial de reciclaje y reutilización.");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         nombre.setText("Vidrio");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/glass.png")));
+        jTextArea3.setText("El vidrio es un material inorgánico, fabricado principalmente a partir de arena de sílice, soda y caliza. Se utiliza principalmente en envases, ventanas y decoración. Su reciclaje reduce la demanda de materias primas, el consumo energético y la emisión de gases de efecto invernadero, pero su manejo inadecuado puede generar residuos voluminosos.");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         nombre.setText("Residuos Electrónicos");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/microwave.png")));
+        jTextArea3.setText("Residuos electrónicos incluyen celulares, computadoras y electrodomésticos. Contienen materiales valiosos como oro, cobre y plástico, pero también sustancias peligrosas como plomo y mercurio. Su reciclaje requiere procesos especializados para extraer materiales útiles y evitar la contaminación ambiental.");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         nombre.setText("Metales");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/steel.png")));
+        jTextArea3.setText("Materiales de desecho formados por metales o aleaciones metálicas que se descartan después de su uso en procesos industriales, domésticos o comerciales. Estos residuos son valiosos debido a la capacidad de los metales para ser reciclados y reutilizados sin perder sus propiedades fundamentales, lo que los convierte en un recurso clave para la economía circular.");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         nombre.setText("Residuos Textiles");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/t-shirt.png")));
+        jTextArea3.setText("Son desechos generados por la fabricación, uso o descarte de productos textiles. Estos incluyen fibras, telas y prendas de vestir, así como otros artículos hechos de materiales textiles, como cortinas, alfombras o ropa de cama.");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         nombre.setText("Residuos Compuestos");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/garbage.png")));
+        jTextArea3.setText("Desechos formados por la combinación de dos o más materiales diferentes que están físicamente unidos y son difíciles de separar para su reciclaje o procesamiento. Debido a esta mezcla de materiales, la gestión de los residuos compuestos suele ser un desafío, ya que no pueden reciclarse fácilmente mediante los métodos convencionales asociados a cada componente.");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         nombre.setText("Residuos Peligrosos");
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/skeleton.png")));
+        jTextArea3.setText("Los residuos peligrosos son aquellos que representan un riesgo para la salud humana y el medio ambiente debido a su toxicidad, inflamabilidad, corrosividad o reactividad. Incluyen baterías, productos químicos, solventes, pesticidas, residuos médicos y electrónicos.");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void ponerPanel(JPanel p) {

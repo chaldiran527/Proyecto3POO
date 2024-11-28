@@ -31,7 +31,7 @@ public class infoTipo extends javax.swing.JPanel {
         infoTipo = new javax.swing.JPanel();
         atras = new javax.swing.JToggleButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        descripcion = new javax.swing.JTextArea();
         anterior2 = new javax.swing.JButton();
         siguiente = new javax.swing.JButton();
         label7 = new javax.swing.JLabel();
@@ -39,10 +39,12 @@ public class infoTipo extends javax.swing.JPanel {
         imagen = new javax.swing.JLabel();
         nombre = new javax.swing.JLabel();
         reciclable = new javax.swing.JLabel();
-        label6 = new javax.swing.JLabel();
-        label5 = new javax.swing.JLabel();
+        biodegradable = new javax.swing.JLabel();
+        tipo = new javax.swing.JLabel();
         label3 = new javax.swing.JLabel();
+        label9 = new javax.swing.JLabel();
         label2 = new javax.swing.JLabel();
+        label8 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         label4 = new javax.swing.JLabel();
@@ -68,17 +70,17 @@ public class infoTipo extends javax.swing.JPanel {
         jScrollPane3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane3.setHorizontalScrollBar(null);
 
-        jTextArea3.setEditable(false);
-        jTextArea3.setBackground(new java.awt.Color(82, 109, 130));
-        jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
-        jTextArea3.setForeground(new java.awt.Color(221, 230, 237));
-        jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(5);
-        jTextArea3.setToolTipText("");
-        jTextArea3.setWrapStyleWord(true);
-        jTextArea3.setBorder(null);
-        jScrollPane3.setViewportView(jTextArea3);
+        descripcion.setEditable(false);
+        descripcion.setBackground(new java.awt.Color(82, 109, 130));
+        descripcion.setColumns(20);
+        descripcion.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        descripcion.setForeground(new java.awt.Color(221, 230, 237));
+        descripcion.setLineWrap(true);
+        descripcion.setRows(5);
+        descripcion.setToolTipText("");
+        descripcion.setWrapStyleWord(true);
+        descripcion.setBorder(null);
+        jScrollPane3.setViewportView(descripcion);
 
         infoTipo.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 580, 150));
 
@@ -130,26 +132,33 @@ public class infoTipo extends javax.swing.JPanel {
         reciclable.setOpaque(true);
         infoTipo.add(reciclable, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 280, 30));
 
-        label6.setBackground(new java.awt.Color(208, 221, 230));
-        label6.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
-        label6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        label6.setOpaque(true);
-        infoTipo.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 280, 40));
+        biodegradable.setBackground(new java.awt.Color(208, 221, 230));
+        biodegradable.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        biodegradable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        biodegradable.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        biodegradable.setOpaque(true);
+        infoTipo.add(biodegradable, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, 280, 30));
 
-        label5.setBackground(new java.awt.Color(208, 221, 230));
-        label5.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
-        label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        label5.setOpaque(true);
-        infoTipo.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 280, 40));
+        tipo.setBackground(new java.awt.Color(208, 221, 230));
+        tipo.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        tipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tipo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tipo.setOpaque(true);
+        infoTipo.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 280, 30));
 
         label3.setBackground(new java.awt.Color(208, 221, 230));
         label3.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
         label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         label3.setOpaque(true);
-        infoTipo.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 280, 40));
+        infoTipo.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 280, 40));
+
+        label9.setBackground(new java.awt.Color(208, 221, 230));
+        label9.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        label9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        label9.setOpaque(true);
+        infoTipo.add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 280, 40));
 
         label2.setBackground(new java.awt.Color(157, 178, 191));
         label2.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
@@ -158,6 +167,13 @@ public class infoTipo extends javax.swing.JPanel {
         label2.setText("Informacion de Residuos por Tipo");
         label2.setOpaque(true);
         infoTipo.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 800, 90));
+
+        label8.setBackground(new java.awt.Color(208, 221, 230));
+        label8.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        label8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        label8.setOpaque(true);
+        infoTipo.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 280, 40));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         infoTipo.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 40));
@@ -224,21 +240,23 @@ private void ponerPanel(JPanel p) {
     private javax.swing.JButton anterior1;
     private javax.swing.JButton anterior2;
     private javax.swing.JToggleButton atras;
+    private javax.swing.JLabel biodegradable;
+    private javax.swing.JTextArea descripcion;
     private javax.swing.JLabel imagen;
     private javax.swing.JPanel infoTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel label;
     private javax.swing.JLabel label2;
     private javax.swing.JLabel label3;
     private javax.swing.JLabel label4;
-    private javax.swing.JLabel label5;
-    private javax.swing.JLabel label6;
     private javax.swing.JLabel label7;
+    private javax.swing.JLabel label8;
+    private javax.swing.JLabel label9;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel reciclable;
     private javax.swing.JButton siguiente;
+    private javax.swing.JLabel tipo;
     // End of variables declaration//GEN-END:variables
 }

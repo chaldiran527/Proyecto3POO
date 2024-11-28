@@ -1,3 +1,15 @@
 Lista de residuos:
 
 
+1. Código: 1
+
+ Tipo: Reciclable
+
+ Categoría: Inorgánico
+
+ Nombre: Awd
+
+ Descripción: awdawd
+
+ Es biodegradable: No
+
